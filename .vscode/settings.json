@@ -1,6 +1,8 @@
 {
     "files.associations": {
+        "*.S": "nasm",
         "cstdio": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "cmath": "cpp"
     }
 }
