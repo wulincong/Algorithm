@@ -3,6 +3,7 @@
         "*.S": "nasm",
         "cstdio": "cpp",
         "cstdlib": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "stdio.h": "c"
     }
 }
