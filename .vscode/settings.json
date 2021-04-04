@@ -4,6 +4,7 @@
         "cstdio": "cpp",
         "cstdlib": "cpp",
         "cmath": "cpp",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "math.h": "c"
     }
 }
