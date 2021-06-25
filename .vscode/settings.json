@@ -7,6 +7,7 @@
         "stdio.h": "c",
         "math.h": "c",
         "algorithm": "cpp",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "elf.h": "c"
     }
 }
