@@ -9,6 +9,7 @@
         "algorithm": "cpp",
         "stdlib.h": "c",
         "elf.h": "c",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "time.h": "c"
     }
 }
