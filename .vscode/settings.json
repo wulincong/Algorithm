@@ -10,6 +10,9 @@
         "stdlib.h": "c",
         "elf.h": "c",
         "iostream": "cpp",
-        "time.h": "c"
+        "time.h": "c",
+        "string": "cpp",
+        "*.tcc": "cpp",
+        "ostream": "cpp"
     }
 }
