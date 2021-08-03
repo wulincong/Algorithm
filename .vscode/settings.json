@@ -13,6 +13,8 @@
         "time.h": "c",
         "string": "cpp",
         "*.tcc": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "status.h": "c",
+        "adt.h": "c"
     }
 }

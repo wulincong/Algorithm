@@ -1,5 +1,10 @@
+#ifndef ADT_H
+#define ADT_H
+
 #ifndef ElemType
 #define ElemType int
+#endif
+
 #include <stdio.h>
 
 typedef struct{
@@ -39,6 +44,14 @@ typedef struct BiTNode{
     struct BiTNode *lchild, *rchild;
 }BiTNode, *BiTree;
 
+
+typedef struct ThreadNode{
+    ElemType data;
+    struct ThreadNode *lchild, *rchild; //左、右孩子指针
+    int ltag, rtag;                     //左、右孩子标志
+} ThreadNode, *ThreadTree;
+
+
 extern void visit(BiTree);
 
 void PreOrder(BiTree T){
@@ -65,6 +78,37 @@ void PostOrder(BiTree T){
         visit(T);
     }
 }
+
+#define MaxVertexNum 100
+
+#ifndef VertexType 
+#define VertexType char
+#endif
+
+#ifndef EdgeType
+#define EdgeType int
+#endif
+
+typedef struct{
+    VertexType Vex[MaxVertexNum];
+    EdgeType Edge[MaxVertexNum][MaxVertexNum];
+    int vexnum, arcnum;
+}MGraph;
+
+typedef struct ArcNode{
+    int adjvex;
+    struct ArcNode *next;   
+} ArcNode;
+
+typedef struct VNode{
+    VertexType data;
+    ArcNode *first;
+} VNode, AdjList[MaxVertexNum];
+
+typedef struct {
+    AdjList vertices;
+    int vexnum, arcnum;
+}ALGraph;
 
 
 
