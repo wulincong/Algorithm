@@ -50,6 +50,7 @@ class TreeNode():
         for i in res:
             print(i, end="")
             if i != res[-1]:print(" ", end="")
+
 if __name__ == '__main__':
     input()
     postorder = input().split(" ")

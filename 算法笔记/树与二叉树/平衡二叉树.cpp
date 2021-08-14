@@ -6,6 +6,7 @@ using namespace std;
 
 typedef struct node {
     int v, height;
+    int data;
     struct node *lchild, *rchild;
 } AVLTree, * AVLNode;
 
@@ -48,4 +49,80 @@ void R(AVLNode root){
     updateHeight(root);
     updateHeight(temp);
     root = temp;
+}
+
+AVLNode search(AVLNode root, int x){
+    /*
+    查找操作，与普通二叉查找树相同
+    */
+   if(root == NULL){
+       printf("search failed\n");
+       return NULL;
+   }
+   if(root->data == x){
+       return root;
+   }else if(root->data > x){
+       return search(root->lchild, x);
+   }else{
+       return search(root->rchild, x);
+   }
+}
+
+void insert(AVLNode root, int x){
+    /*
+    平衡二叉树的插入操作
+    如果当前节点为空节点，插入之，
+    如果当前节点不是空的，则需要根据是否失衡进行调整，
+    */
+    if(root == NULL){
+        root = newNode(x);
+        return;
+    }
+    if(root->data == x) return;
+    if(root->data > x){
+        insert(root->lchild, x);
+        //之后调整
+        updateHeight(root);     //更新树高
+        if(getBanlanceFavtor(root) == 2){ // 如果BF = 2
+            if(getBanlanceFavtor(root->lchild) == 1) R(root);  //需要右旋
+            /*
+                    1*                2*              
+                  2*       ---->    3*   1*           
+                3*                                    
+            */
+            if(getBanlanceFavtor(root->lchild) == -1){  // 
+            /*
+                    1*                1*             3*
+                  2*       ---->    3*     ---->   2*   1*
+                    3*            2*                       
+            */
+                L(root->lchild);
+                R(root);
+            }
+        }else if(getBanlanceFavtor(root) == -2){ // BF = -2
+            if(getBanlanceFavtor(root->rchild) == -1) L(root);   //需要左旋
+            /*
+                1*                     2*              
+                   2*       ---->    1*   3*           
+                      3*                                    
+            */
+            if(getBanlanceFavtor(root->rchild) == 1){
+            /*
+                1*                1*                 3*
+                   2*    ---->       3*     ---->  1*   2*      
+                  3*                    2*           
+            */
+                R(root->rchild);
+                L(root);
+            }    
+        }
+    }
+}
+
+AVLNode create(int data[], int n){
+    AVLNode root = NULL;
+    for(int i=0; i<n; i++){
+        insert(root, data[i]);
+    }
+    return root;
 }
