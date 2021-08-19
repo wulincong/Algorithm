@@ -2,10 +2,10 @@
 #include <ctype.h>
 
 int main(int argc, char *argv[]){
-    char Str1[60];scanf("%s", Str1);
-    char Str2[60];scanf("%s", Str2);
-    char Str3[60];scanf("%s", Str3);
-    char Str4[60];scanf("%s", Str4);
+    char Str1[61];scanf("%s", Str1);
+    char Str2[61];scanf("%s", Str2);
+    char Str3[61];scanf("%s", Str3);
+    char Str4[61];scanf("%s", Str4);
     char *p,*q,*temp;
     int flag = 0;
     p = Str1;
@@ -69,3 +69,7 @@ int main(int argc, char *argv[]){
     return 0;
 
 }
+// 3485djDkxh4hhGE 
+// 2984akDfkkkkggEdsb 
+// s&hgsfdk 
+// d&Hyscvnm

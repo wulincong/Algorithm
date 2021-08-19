@@ -1,5 +1,6 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
+
+using namespace std;
 
 const int MAXV = 1000;
 
@@ -9,10 +10,9 @@ bool vis[MAXV] = {false};
 
 void DFS(int u, int depth){
     vis[u] = true;
-    for(int i = 0; i < Adj[u].size(); i++){
-        int v = Adj[u][i];
-        if(vis[v] == false){
-            DFS(v, depth + 1);
+    for(auto item : Adj[u]){
+        if(vis[item] == false){
+            DFS(item, depth + 1);
         }
     }
 }

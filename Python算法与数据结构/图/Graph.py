@@ -58,6 +58,14 @@ class Graph:
     def __iter__(self):
         return iter(self.verList.values())
 
+class PriorityQueue:
+    def __init__(self):
+        pass
+
+def dijkstra(aGraph, start):
+    pq = PriorityQueue
+    start.setDistance(0)
+    
 
 
 if __name__ == '__main__':
