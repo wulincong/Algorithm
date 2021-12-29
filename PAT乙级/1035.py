@@ -18,33 +18,41 @@
 '''
 
 array = []
+array2 = []
 
-def insert_sort():
-    
-    ...
-
-def merge(a, mid, b):
-    
-    l = array[a:b]
-    array[a:b] = sorted(l)
-    ...
-
-def merge_sort(a, b):
-    print(a, b)
-    if a == b: return
-    mid = (a + b) // 2
-    merge_sort(a, mid)
-    merge_sort(mid + 1, b)
-    merge(a, mid, b)
-    # print(a, b, array)
+def insert_sort(arr_tmp):
+    for i in range(0, len(arr_tmp)):
+        if(array2[:i] != sorted(array2[:i])):
+            arr_tmp[:i] = sorted(arr_tmp[:i])
+            print("Insertion Sort")
+            arr_tmp = [str(i) for i in arr_tmp]
+            print(" ".join(arr_tmp))
+            break
     ...
 
 def is_merge():
     i = 2
-    k = 1
-    while k*i < len(array):
-        ...
+    flag = 0
+    while i < len(array):
+        j = 0
+        while j * i < len(array):
+            array[i*j:i*(j+1)] = sorted(array[i*j:i*(j+1)])
+            j += 1
+        if flag:
+            arr = [str(i) for i in array]
+            print(" ".join(arr))
+            return True
+        if array == array2: 
+            print("Merge Sort")
+            flag = 1
+        i = i * 2
+    return False
 
 if __name__ == '__main__':
-    array = [3, 1, 2, 8, 7, 5, 9, 4, 0, 6]
-    merge_sort(0, 10)
+    N = int(input())
+    array = [int(_) for _ in input().split(" ")]
+    array2 = [int(_) for _ in input().split(" ")]
+    arr_tmp = array.copy()
+    if(not is_merge()):
+        insert_sort(arr_tmp)
+
