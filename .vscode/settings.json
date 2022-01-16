@@ -15,6 +15,7 @@
         "*.tcc": "cpp",
         "ostream": "cpp",
         "status.h": "c",
-        "adt.h": "c"
+        "adt.h": "c",
+        "istream": "cpp"
     }
 }
