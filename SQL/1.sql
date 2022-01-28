@@ -15,3 +15,18 @@ select last_name, first_name, dept_no
 select last_name, first_name, dept_no 
     from employees as e left outer join dept_emp as d
     on e.emp_no = d.emp_no;
+
+select dept_no, emp_no, maxSalary
+from employees natural left join salaries 
+    natural left join  (select dept_no, max(salary) as maxSalary
+    from employees natural left join salaries
+    GROUP by dept_no)
+where salary=maxSalary;
+
+select dept_no, emp_no, maxSalary
+from dept_emp natural left join salaries 
+    natural left join  (select dept_no, max(salary) as maxSalary
+    from dept_emp natural left join salaries
+    GROUP by dept_no) as M
+where salary=M.maxSalary;
+

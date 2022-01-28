@@ -29,23 +29,24 @@ int main(){
     int M[m][n];
     bool direction = true;
     int index = 0;
-    int x = 0,y = 0;
+    int x = 0, y = -1;
     int i = n, j = m - 1;
     while(i >= 0 && j >= 0) {
-        cout << i << " " << j << endl;
-        if(direction == right_down){
-            for(int k = 0; k < i; k++){M[x][y] = V[index++];y++;}
-            for(int l = 0; l < j; l++){M[x][y] = V[index++];x++;}
-        }        
-        if(direction == left_up){
-            for(int k = 0; k < i; k++){M[x][y] = V[index++];y--;}
-            for(int l = 0; l < j; l++){M[x][y] = V[index++];x--;}
+        if(direction == right_down){ //右上时向右k、i格，向下j格
+            for(int k = 0; k < i; k++){M[x][++y] = V[index++];}
+            for(int l = 0; l < j; l++){M[++x][y] = V[index++];}
+        }
+        else if(direction == left_up){
+            for(int k = 0; k < i; k++){M[x][--y] = V[index++];}
+            for(int l = 0; l < j; l++){M[--x][y] = V[index++];}
         }
         i--; j--;
+        direction = !direction;
     }
     for(int i = 0; i < m; i++){
         for(int j = 0; j < n; j++){
-            cout << M[i][j] << " ";
+            cout << M[i][j];
+            if(j < n - 1 ) cout << " ";
         }
         cout << endl;
     }

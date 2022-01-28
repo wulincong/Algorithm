@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <iomanip>
 
 using namespace std;
 
@@ -27,11 +26,6 @@ int main(int argc ,char **argv){
         }
     }
 
-    // for(auto i:N1    )cout << i << " ";
-    // cout << endl;
-    // for(auto i:N2    )cout << i << " ";
-    // cout << endl;
-    // for(auto i:result)cout << i << " ";
     int cnt = 0;
     for(int i = 0; i < 2001 ; i++){
         if(result[i] != 0){
@@ -41,8 +35,8 @@ int main(int argc ,char **argv){
     cout << cnt << " ";
     for(int i = 2001; i >= 0; i--){
         if(result[i] != 0){
-            float res = (int)((result[i] + 0.05) * 10) / 10.0;
-            printf("%d %.1f", i, res);
+            // float res = (int)((result[i] + 0.05) * 10) / 10.0;
+            printf("%d %.1f", i, result[i]);
             cnt--;
             if(cnt != 0) cout << " ";
         }
