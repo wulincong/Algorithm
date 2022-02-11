@@ -1,0 +1,1 @@
+print(" ".join([['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'][int(_)] for _ in list(str(sum([int(_) for _ in list(input())])))] ))
