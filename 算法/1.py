@@ -7,3 +7,10 @@ def api():
     锁 = 0
 
 
+li = []
+
+
+def api2(request):
+    li.append(request.user)
+    if(li.length > 3):
+        ...
