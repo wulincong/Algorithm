@@ -7,9 +7,20 @@ using namespace std;
 */
 namespace Increase{
     void print_subset(int n, int *A, int curr){
-        for(int i = 0; i < curr; i++)cout << A[i] << " ";
-        cout << endl;
-        int s = curr ? A[curr - 1] + 1 : 0;   //如果curr > 0 则选择
+        /*此算法要盯着两个量 curr-当前操作的位置
+        s是起始量，所谓增量构造就是从s开始增加
+        */
+        if(curr == 0) cout << "{}"<< endl;
+        else {
+            cout << "{";
+            for(int i = 0; i < curr; i++)cout << A[i] << ", ";
+            cout << "}" << endl;
+        }
+        int s = curr ? A[curr - 1] + 1 : 0;   
+        /*
+        如果curr > 0 则选择 当前位置前一个量 +1 
+        如果curr == 0 则从0开始
+        */
         for(int i = s; i < n; i++){
             A[curr] = i;
             print_subset(n, A, curr+ 1);
@@ -41,7 +52,7 @@ void print_subset(int n, int s){
 
 int main(int argc, char *argv[]){
     int A[11];
-    int n = 10;
+    int n = 3;
     Increase::print_subset(n, A, 0);
     memset(A, 0, sizeof(A));     
     Vector::print_subset(n, A, 0);   

@@ -16,6 +16,8 @@
         "ostream": "cpp",
         "status.h": "c",
         "adt.h": "c",
-        "istream": "cpp"
+        "istream": "cpp",
+        "iosfwd": "cpp",
+        "thread": "cpp"
     }
 }

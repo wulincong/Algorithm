@@ -5,7 +5,7 @@ struct Node{
     bool have_value;
     int v;
     Node *left, *right;
-    Node():have_value(false), left(NULL), right(NULL){}
+    Node():have_value{false}, left(NULL), right(NULL){}
 };
 
 Node * root;

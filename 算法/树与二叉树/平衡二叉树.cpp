@@ -11,7 +11,7 @@ typedef struct node {
 } AVLTree, * AVLNode;
 
 AVLNode newNode(int v){
-    AVLNode node = (AVLNode) malloc(sizeof(AVLTree));
+    AVLNode node = new AVLTree;
     node->v = v;
     node->height = 1;
     node->lchild = node->rchild = NULL;
@@ -90,7 +90,7 @@ void insert(AVLNode root, int x){
                   2*       ---->    3*   1*           
                 3*                                    
             */
-            if(getBanlanceFavtor(root->lchild) == -1){  // 
+            else if(getBanlanceFavtor(root->lchild) == -1){  // 
             /*
                     1*                1*             3*
                   2*       ---->    3*     ---->   2*   1*
@@ -99,7 +99,11 @@ void insert(AVLNode root, int x){
                 L(root->lchild);
                 R(root);
             }
-        }else if(getBanlanceFavtor(root) == -2){ // BF = -2
+        }
+    }else {
+        insert(root->rchild, x);
+        updateHeight(root);
+        if(getBanlanceFavtor(root) == -2){ // BF = -2
             if(getBanlanceFavtor(root->rchild) == -1) L(root);   //需要左旋
             /*
                 1*                     2*              
