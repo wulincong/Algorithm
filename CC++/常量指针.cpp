@@ -14,3 +14,8 @@ int main(int argc, char **argv){
     Func *F = NULL;
     
 }
+char const * c;
+
+void f1(const char * p){
+    //无权修改*p
+}
